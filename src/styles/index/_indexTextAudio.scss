@@ -1,0 +1,66 @@
+.main-section{
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px black solid;
+
+    h1{
+        margin: 0 auto;
+        margin-bottom: 20px;
+        width: 25%;
+    }
+
+    .flex-top{
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+
+        .audio{
+            height: 200px;
+            width: 45%;
+        }
+
+        .description{
+            width: 45%;
+
+            .pop-up-section{
+                position: absolute;
+                .selected-word{
+                    font-weight: bold;
+                    font-size: 1.0rem;
+                    background-color: white;
+                    border: none;
+                    text-decoration-color: white;
+                    transition: 0.5s;
+                    
+                }
+
+                .pop-up{
+                    position: relative;
+                    background-color: white;
+                    width: auto;
+                    border: 1px rgb(148, 148, 148) solid;
+                    border-radius: 8px;
+                    padding: 10px 60px 10px 20px;
+                    right: 50%;
+                    
+                    button{
+                        background-color: rgb(0, 134, 211);
+                        color: white;
+                        border: none;
+                        border-radius: 10px;
+                        padding: 8px 30px;
+                        margin-top: 10px;
+                    }
+                }
+            }
+
+
+            .selected-word:hover{
+                text-decoration: underline;
+                text-decoration-color: aqua;
+                text-decoration-thickness: 4px;
+            }
+        }
+    }
+}

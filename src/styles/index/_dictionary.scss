@@ -1,0 +1,27 @@
+.dictionary{
+    display: none;
+    width: 100%;
+    border-bottom: 1px rgb(143, 143, 143) solid;
+    padding-bottom: 10px;
+}
+
+.dictionary.main-container{
+    display: block;
+}
+
+.dictionary-container{
+    display: flex;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    justify-content: center;
+    gap: 50%;
+}
+
+.deleted{
+    background-color: rgb(0, 134, 211);
+    height: auto;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 30px;
+}

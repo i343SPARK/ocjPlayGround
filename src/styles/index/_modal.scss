@@ -1,0 +1,27 @@
+.modal{
+    position: relative;
+    background-color: white;
+    width: auto;
+    border: 1px rgb(148, 148, 148) solid;
+    border-radius: 8px;
+    padding: 10px 60px 10px 20px;
+    right: 50%;
+    display: none;
+    
+}
+
+.modal.is-open{
+    display: flex;
+}
+
+.modal-container{
+    
+    button{
+        background-color: rgb(0, 134, 211);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 8px 30px;
+        margin-top: 10px;
+    }
+}
