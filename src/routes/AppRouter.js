@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import { Bar } from '../Bar';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import IndexScreen from '../components/index/IndexScreen'
 import { SharingProjectsScreen } from '../components/sharingProjects/SharingProjectsScreen';
 
