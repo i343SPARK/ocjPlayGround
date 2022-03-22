@@ -1,13 +1,20 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import IndexScreen from '../components/index/IndexScreen'
+import { SharingProjectsScreen } from '../components/sharingProjects/SharingProjectsScreen';
 
 export const AppRouter = () => {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path='/' element={<IndexScreen/>} />
-            </Routes>
-        </BrowserRouter>
+        <>
+        <div>
+            
+        </div>
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/' element={<IndexScreen/>} />
+                    <Route path='/shareScreen' element={<SharingProjectsScreen/>}/>
+                </Routes>
+            </BrowserRouter>
+        </>
     );
 }
