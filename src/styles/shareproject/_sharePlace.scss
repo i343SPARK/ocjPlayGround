@@ -50,15 +50,24 @@
                 background-color: rgba(199, 199, 199, 0.5);
             }
 
-            .overflowGrp1{
-                margin-top: 10px;
-                margin-bottom: 10px;
-                height: 200px;
-                overflow-y: scroll;
+        }
+        .overflowGrp1{
+            display: flex;
+            justify-content: space-around;
+            gap: 5px;
+            width: 100%;
+            margin: 0 auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 200px;
+            overflow-y: scroll;
 
-                .buttonProyect{
-                    width: 50%;
-                }
+            .buttonProyect{
+                width: 100px;
+                background-color: white;
+                border: none;
+                border-radius: 10px;
+                box-shadow: 0px 0px 30px -3px rgba(87,87,87,0.75);
             }
         }
     }

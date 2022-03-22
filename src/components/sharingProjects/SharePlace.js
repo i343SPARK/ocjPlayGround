@@ -37,7 +37,11 @@ export const SharePlace = () => {
             <article className='overflowGrp1'>
                 <div>
                     <button className='buttonProyect'>
-                        <img width='100px' className='img' src='http://cdn.eso.org/images/screen/sunrise-shadow-cc.jpg'/>
+                        <img width='10px' className='img' src='http://cdn.eso.org/images/screen/sunrise-shadow-cc.jpg'/>
+                        <h3>Proyecto 1</h3>
+                    </button>
+                    <button className='buttonProyect'>
+                        <img width='10px' className='img' src='http://cdn.eso.org/images/screen/sunrise-shadow-cc.jpg'/>
                         <h3>Proyecto 1</h3>
                     </button>
                 </div>
