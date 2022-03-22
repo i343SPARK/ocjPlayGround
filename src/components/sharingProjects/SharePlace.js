@@ -85,12 +85,12 @@ export const SharePlace = () => {
         <section className={`pop-up ${isOpenModal1 && "on"}`}>
             <article className='popUp_content'>
                 <div>
-                    <a><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Drive_icon_%282020%29.svg/1200px-Google_Drive_icon_%282020%29.svg.png'/></a>
-                    <a><img src='https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/a3/f7fbbcdda6459f8e5efeb950cfc613/Docs_Product_Icon_512dp-2x.png?auto=format%2Ccompress&dpr=1'/></a>
-                    <a><img src='https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/3e/78bccb2b7c4a859a24f0b1b0653adc/Slides_Product_Icon_512dp-2x.png?auto=format%2Ccompress&dpr=1'/></a>
-                    <a><img src='https://lh3.ggpht.com/e3oZddUHSC6EcnxC80rl_6HbY94sM63dn6KrEXJ-C4GIUN-t1XM0uYA_WUwyhbIHmVMH=w300'/></a>
-                    <a><img src='https://www.uc3m.es/ss/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1371564669620&ssbinary=true'/></a>
-                    <a><img src='https://play-lh.googleusercontent.com/GBYSf20osBl2CRHbjGOyaOG5kQ3G4xbRau-dzScU9ozuXQJtnUZPkR3IqEDOo5OiVgU'/></a>
+                    <a target="_blank" href='https://drive.google.com/drive/my-drive'><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Drive_icon_%282020%29.svg/1200px-Google_Drive_icon_%282020%29.svg.png'/></a>
+                    <a target="_blank" href='https://docs.google.com/document/u/0/'><img src='https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/a3/f7fbbcdda6459f8e5efeb950cfc613/Docs_Product_Icon_512dp-2x.png?auto=format%2Ccompress&dpr=1'/></a>
+                    <a target="_blank" href='https://docs.google.com/presentation/u/0/'><img src='https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/3e/78bccb2b7c4a859a24f0b1b0653adc/Slides_Product_Icon_512dp-2x.png?auto=format%2Ccompress&dpr=1'/></a>
+                    <a target="_blank" href='https://docs.google.com/spreadsheets/u/0/'><img src='https://lh3.ggpht.com/e3oZddUHSC6EcnxC80rl_6HbY94sM63dn6KrEXJ-C4GIUN-t1XM0uYA_WUwyhbIHmVMH=w300'/></a>
+                    <a target="_blank" href='https://jamboard.google.com'><img src='https://www.uc3m.es/ss/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1371564669620&ssbinary=true'/></a>
+                    <a target="_blank" href='https://classroom.google.com/u/0/h'><img src='https://play-lh.googleusercontent.com/GBYSf20osBl2CRHbjGOyaOG5kQ3G4xbRau-dzScU9ozuXQJtnUZPkR3IqEDOo5OiVgU'/></a>
                 </div>
                 <button onClick={closeModal1}>cerrar</button>
             </article>
