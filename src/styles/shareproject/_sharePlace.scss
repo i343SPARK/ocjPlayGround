@@ -95,3 +95,54 @@
         }
     }
 }
+
+.pop-up{
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+    display: none;
+    background-color: rgba(0,0,0,0.5);
+    top: -10px;
+    
+}
+
+.pop-up.on{
+    display: flex;
+}
+
+.popUp_content{
+    width: 80%;
+    height: 200px;
+    background-color: white;
+    margin: 200px auto;
+    padding: 10px 10px;
+    border-radius: 20px;
+    
+    div{
+        display: flex;
+        justify-content: space-between;
+
+        a{
+            background-color: white;
+            transition: 0.5s;
+
+            img{
+                width: 100px;
+                background-color: white;
+            }
+        }
+
+        a:hover{
+            background-color: gray;
+        }
+    }
+
+    button{
+        width: 10%;
+        margin: 0 auto;
+
+    }
+
+}
