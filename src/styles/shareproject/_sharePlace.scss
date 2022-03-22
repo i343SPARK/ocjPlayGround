@@ -49,6 +49,17 @@
             .numGroup:hover{
                 background-color: rgba(199, 199, 199, 0.5);
             }
+
+            .overflowGrp1{
+                margin-top: 10px;
+                margin-bottom: 10px;
+                height: 200px;
+                overflow-y: scroll;
+
+                .buttonProyect{
+                    width: 50%;
+                }
+            }
         }
     }
 }

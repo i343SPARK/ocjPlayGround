@@ -34,7 +34,7 @@ export const SharePlace = () => {
         </div>
         <div className='shareDiv'>
             <h2>Proyectos</h2>
-            <article className='overflowGrp'>
+            <article className='overflowGrp1'>
                 <div>
                     <button className='buttonProyect'>
                         <img width='100px' className='img' src='http://cdn.eso.org/images/screen/sunrise-shadow-cc.jpg'/>
