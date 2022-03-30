@@ -137,9 +137,19 @@
         a:hover{
             background-color: gray;
         }
+
+        .btb{
+            background-color: white;
+            transition: 0.5s;
+
+            img{
+                width: 100px;
+                background-color: white;
+            }
+        }
     }
 
-    button{
+    .pedroextix{
         width: 10%;
         padding: 10px 20px;
         margin: 0 45%;
