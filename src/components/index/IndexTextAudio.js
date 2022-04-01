@@ -21,6 +21,8 @@ export const IndexTextAudio = () => {
             </span> vitae, consectetur quod, dicta quibusdam iure autem error fugiat, asperiores perferendis sapiente modi!<br/>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi maiores nostrum quisquam voluptas. Ad, aperiam consequuntur! Nemo vitae, consectetur quod, dicta quibusdam iure autem error fugiat, asperiores</p>
         </div>
+        <div><a rel="noreferrer" target="_blank" href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Happines%20Certification%20JesusAdri&organizationName=AZI%20APPLIED%20TECHNOLOGY&issueYear=2021&issueMonth=4&certUrl=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Flearn%2Fcertifications%2Fd365-functional-consultant-sales&certId=4345"><img src="https://download.linkedin.com/desktop/add2profile/buttons/en_US.png " alt="LinkedIn Add to Profile button"/></a>
+        </div>
       </section>
   )
 }
