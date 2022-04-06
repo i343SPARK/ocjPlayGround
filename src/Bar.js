@@ -6,6 +6,7 @@ export const Bar = () => {
     <div className='BarContainer'>
         <Link className='elemetBar' to="/" >Main</Link>
         <Link className='elemetBar' to="/shareScreen" >Share</Link>
+        <Link className='elemetBar' to="/video" >Video Test</Link>
     </div>
   )
 }

@@ -9,7 +9,7 @@ export const IndexTextAudio = () => {
       <section className='main-section'>
         <h1>Prueba de diccionario</h1>
         <div className='flex-top'>
-            <iframe className='audio' frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/445b23b6-bc27-4e74-a276-df3b2d0a89fd?dark=true"></iframe>
+            <iframe title='Audio' className='audio' frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/445b23b6-bc27-4e74-a276-df3b2d0a89fd?dark=true"></iframe>
             <p className='description'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi maiores nostrum quisquam voluptas. Ad, aperiam consequuntur!
             <span className='pop-up-section'>     
                 <button className='selected-word' onClick={openModal1}> 
@@ -27,6 +27,6 @@ export const IndexTextAudio = () => {
   )
 }
 
-function sayHello(){
-    alert('Hola');
-}
+// function sayHello(){
+//     alert('Hola');
+// }
