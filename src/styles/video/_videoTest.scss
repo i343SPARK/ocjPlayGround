@@ -7,4 +7,20 @@
         margin: 0 auto;
         margin-top: 50px;
     }
+
+    .videoBar{
+        display: flex;
+        justify-content: center;
+        background-color: rgb(234, 234, 234);
+        height: 30px;
+        padding: 5px 5px;
+        gap: 10px;
+
+        .videoButton{
+            background-color: black;
+            color: white;
+            border: none;
+            width: 80px;
+        }
+    }
 }
