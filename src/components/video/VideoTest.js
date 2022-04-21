@@ -4,12 +4,23 @@ import ReactPlayer from 'react-player'
 
 export const VideoTest = () => {
 
+  let testDuration = 0;
   let [speed, setSpeed] = useState(1)
+  let [duration, setDuration] = useState(0)
   let [names, setNames] = useState("play")
   const [condition, setCondition] = useState(false);
   const [condition2, setCondition2] = useState(false);
   const [condition3, setCondition3] = useState(false);
-  
+
+  const handleWatchComplete = ( {playedSeconds} ) =>{
+    console.log(playedSeconds)
+    setDuration(playedSeconds)
+  }
+
+  // const viewTimeLine = () =>{
+  //   setDuration(duration = 2)
+  // }
+
   const speedOne = () => {
     setSpeed(speed = 1)
   }
@@ -44,7 +55,7 @@ export const VideoTest = () => {
         pip={condition2}
         muted ={condition3}
         playbackRate={speed}
-        
+        onProgress={handleWatchComplete}
         />
       <div className='videoBar'>
         <button className='videoButton' onClick={onPlayName}>{names}</button>
@@ -54,12 +65,12 @@ export const VideoTest = () => {
         <button className='videoButton' onClick={speedOneFive}>x1.5</button>
         <button className='videoButton' onClick={speedTwo}>x2</button>
       </div>
-      <input type="range"></input>
+        <p>{parseInt(duration)}</p>
+        <input id={"video-interval"} type="range" value={duration}></input>
       </div>
     </section>
   )
 }
-  // const [isPush, pushOn, pushOff] = ButtonHook(false)
 
 
   
