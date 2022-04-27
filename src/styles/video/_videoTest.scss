@@ -23,4 +23,59 @@
             width: 80px;
         }
     }
+
+    .video-loaded{
+        width: 100%;
+    }
+}
+
+.first-box{
+    display: none;
+}
+
+.on-first-box{
+    display: block;
+
+    .videoButton{
+        margin-top: 10px;
+        background-color: black;
+        height: 25px;
+        color: white;
+        border: none;
+        width: 80px;
+    }
+}
+
+.second-box{
+    display: none;
+}
+
+.on-second-box{
+    display: block;
+
+    .videoButton{
+        margin-top: 10px;
+        background-color: black;
+        height: 25px;
+        color: white;
+        border: none;
+        width: 80px;
+    }
+}
+
+.third-box{
+    display: none;
+}
+
+.on-third-box{
+    display: block;
+
+    .videoButton{
+        margin-top: 10px;
+        background-color: black;
+        height: 25px;
+        color: white;
+        border: none;
+        width: 80px;
+    }
 }
