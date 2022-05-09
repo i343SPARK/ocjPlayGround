@@ -21,7 +21,7 @@ export const VideoTest = () => {
     setProgress(playedSeconds)
     console.log(progress)
 
-    if (progress > 11 && progress < 11.03 && condition){
+    if (progress > 11 && progress < 11.02 && condition){
       onPlayName()
       setWatchFirst(true)
     }else if (progress > 11.2 && progress < 11.5){
@@ -35,11 +35,11 @@ export const VideoTest = () => {
       setWatchSecond(false)
     }
 
-    if (progress > 87 && progress < 87.03 && condition){
+    if (progress > 87 && progress < 87.06 && condition){
       onPlayName()
       setWatchThird(true)
     }else if (progress > 87.2 && progress < 87.5){
-      setWatchFirst(false)
+      setWatchThird(false)
     }
   }
 
@@ -89,6 +89,7 @@ export const VideoTest = () => {
              id={"video-interval"}
              type="range"
              value={progress}
+             onChange={handleWatchComplete}
       />
       <div className='videoBar'>
         <button className='videoButton' onClick={onPlayName}>{names}</button>
@@ -102,19 +103,19 @@ export const VideoTest = () => {
         <article className={watchFirst ? "on-first-box" : "first-box"}>
           <QuestionOne/>
           <div>
-            <button className='videoButton' onClick={setFirst}>Next</button>
+            <button className='videoButton' onClick={onPlayName}>Next</button>
           </div>
         </article>
         <article className={watchSecond ? "on-second-box" : "second-box"}>
           <QuestionTwo/>
           <div>
-            <button className='videoButton' onClick={setFirst}>Next</button>
+            <button className='videoButton' onClick={onPlayName}>Next</button>
           </div>
         </article>
         <article className={watchThird ? "on-third-box" : "third-box"}>
           <QuestionThee/>
           <div>
-            <button className='videoButton' onClick={setFirst}>Next</button>
+            <button className='videoButton' onClick={onPlayName}>Next</button>
           </div>
         </article>
       </div>
