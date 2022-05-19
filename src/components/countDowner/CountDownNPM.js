@@ -1,4 +1,4 @@
-import Countdown, { CountdownApi } from "react-countdown";
+import Countdown from "react-countdown";
 import {useState} from "react";
 
 export const CountDownNPM = () =>{

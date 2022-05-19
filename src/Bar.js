@@ -8,6 +8,7 @@ export const Bar = () => {
         <Link className='elemetBar' to="/shareScreen" >Share</Link>
         <Link className='elemetBar' to="/video" >Video</Link>
         <Link className='elemetBar' to="/count" >Count Down</Link>
+        <Link className="elemetBar" to="/creatorVideo" >Creator</Link>
     </div>
   )
 }

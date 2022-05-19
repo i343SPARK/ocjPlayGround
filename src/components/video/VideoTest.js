@@ -43,9 +43,9 @@ export const VideoTest = () => {
     }
   }
 
-  const setFirst = () =>{
-      setProgress(0)
-  }
+  // const setFirst = () =>{
+  //     setProgress(0)
+  // }
 
   const speedOne = () => {
     setSpeed(speed = 1)
