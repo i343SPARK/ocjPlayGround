@@ -9,10 +9,10 @@ class TestFor extends Component {
     state = {
         url: null,
         pip: false,
-        playing: true,
+        playing: false,
         controls: false,
         light: false,
-        volume: 0.8,
+        volume: 0.5,
         muted: false,
         played: 0,
         loaded: 0,
@@ -146,83 +146,84 @@ class TestFor extends Component {
 
         return (
             <section className='videoSectionCreator'>
-                    <h1>ReactPlayer Demo</h1>
-                    <div className='player-wrapper'>
-                        <ReactPlayer
-                            ref={this.ref}
-                            className='react-player'
-                            width='100%'
-                            height='100%'
-                            url={"https://www.dropbox.com/s/1xcg0a9wxorpi2x/ego-prueba-el-platillo-que-remy-le-prepara-ratatouille.mp4?dl=0"}
-                            pip={pip}
-                            playing={playing}
-                            controls={controls}
-                            light={light}
-                            loop={loop}
-                            playbackRate={playbackRate}
-                            volume={volume}
-                            muted={muted}
-                            onReady={() => console.log('onReady')}
-                            onStart={() => console.log('onStart')}
-                            onPlay={this.handlePlay}
-                            onEnablePIP={this.handleEnablePIP}
-                            onDisablePIP={this.handleDisablePIP}
-                            onPause={this.handlePause}
-                            onBuffer={() => console.log('onBuffer')}
-                            onPlaybackRateChange={this.handleOnPlaybackRateChange}
-                            onSeek={e => console.log('onSeek', e)}
-                            onEnded={this.handleEnded}
-                            onError={e => console.log('onError', e)}
-                            onProgress={this.handleProgress}
-                            onDuration={this.handleDuration}
-                        />
-                    </div>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <th>elapsed</th>
-                            <td><Duration seconds={duration * played} /></td>
-                        </tr>
-                        <tr>
-                            <th>Controls</th>
-                            <td>
-                                <button onClick={this.handleStop}>Stop</button>
-                                <button onClick={this.handlePlayPause}>{playing ? 'Pause' : 'Play'}</button>
-                                <button onClick={this.handleClickFullscreen}>Fullscreen</button>
-                                {light &&
-                                    <button onClick={() => this.player.showPreview()}>Show preview</button>}
-                                {ReactPlayer.canEnablePIP(url) &&
-                                    <button onClick={this.handleTogglePIP}>{pip ? 'Disable PiP' : 'Enable PiP'}</button>}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Speed</th>
-                            <td>
-                                <button onClick={this.handleSetPlaybackRate} value={1}>1x</button>
-                                <button onClick={this.handleSetPlaybackRate} value={1.5}>1.5x</button>
-                                <button onClick={this.handleSetPlaybackRate} value={2}>2x</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Seek</th>
-                            <td>
-                                <input
-                                    type='range' min={0} max={0.999999} step='any'
-                                    value={played}
-                                    onMouseDown={this.handleSeekMouseDown}
-                                    onChange={this.handleSeekChange}
-                                    onMouseUp={this.handleSeekMouseUp}
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Volume</th>
-                            <td>
-                                <input type='range' min={0} max={1} step='any' value={volume} onChange={this.handleVolumeChange} />
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                <h1>ReactPlayer Demo</h1>
+                <div className='player-wrapper'>
+                    <ReactPlayer
+                        ref={this.ref}
+                        className='react-player'
+                        width='100%'
+                        height='100%'
+                        url={"https://www.dropbox.com/s/1xcg0a9wxorpi2x/ego-prueba-el-platillo-que-remy-le-prepara-ratatouille.mp4?dl=0"}
+                        pip={pip}
+                        playing={playing}
+                        controls={controls}
+                        light={light}
+                        loop={loop}
+                        playbackRate={playbackRate}
+                        volume={volume}
+                        muted={muted}
+                        onReady={() => console.log('onReady')}
+                        onStart={() => console.log('onStart')}
+                        onPlay={this.handlePlay}
+                        onEnablePIP={this.handleEnablePIP}
+                        onDisablePIP={this.handleDisablePIP}
+                        onPause={this.handlePause}
+                        onBuffer={() => console.log('onBuffer')}
+                        onPlaybackRateChange={this.handleOnPlaybackRateChange}
+                        onSeek={e => console.log('onSeek', e)}
+                        onEnded={this.handleEnded}
+                        onError={e => console.log('onError', e)}
+                        onProgress={this.handleProgress}
+                        onDuration={this.handleDuration}
+                    />
+                </div>
+                <div className={"video-bar--controls"}>
+                    {/*<button onClick={this.handleStop}>Stop</button>*/}
+                    <button onClick={this.handlePlayPause} className={playing ? "video-playing" : "video-paused"}></button>
+                    {/*<button onClick={this.handleClickFullscreen}>Fullscreen</button>*/}
+                    <button className={"previous-button--video"}>Previous</button>
+                    <button className={"next-button--video"}>Next</button>
+                    <span className={"volume-container"}>
+                        <input className={"volume"} type='range' min={0} max={1} step='any' value={volume} onChange={this.handleVolumeChange} />
+                    </span>
+                    <span className={"time-container"}>
+                        <Duration className={"duration"} seconds={duration * played} />
+                    </span>
+                </div>
+                <div className={"seek-container"}>
+                    <input
+                        className={"seek-bar"}
+                        type='range' min={0} max={0.999999} step='any'
+                        value={played}
+                        onMouseDown={this.handleSeekMouseDown}
+                        onChange={this.handleSeekChange}
+                        onMouseUp={this.handleSeekMouseUp}
+                    />
+                </div>
+                {/*<table>*/}
+                {/*    <tbody>*/}
+                {/*    <tr>*/}
+                {/*        <th>elapsed</th>*/}
+                {/*    </tr>*/}
+                {/*    <tr>*/}
+                {/*        <th>Controls</th>*/}
+                {/*        <td>*/}
+                {/*            {light &&*/}
+                {/*                <button onClick={() => this.player.showPreview()}>Show preview</button>}*/}
+                {/*            {ReactPlayer.canEnablePIP(url) &&*/}
+                {/*                <button onClick={this.handleTogglePIP}>{pip ? 'Disable PiP' : 'Enable PiP'}</button>}*/}
+                {/*        </td>*/}
+                {/*    </tr>*/}
+                {/*    <tr>*/}
+                {/*        <th>Speed</th>*/}
+                {/*        <td>*/}
+                {/*            <button onClick={this.handleSetPlaybackRate} value={1}>1x</button>*/}
+                {/*            <button onClick={this.handleSetPlaybackRate} value={1.5}>1.5x</button>*/}
+                {/*            <button onClick={this.handleSetPlaybackRate} value={2}>2x</button>*/}
+                {/*        </td>*/}
+                {/*    </tr>*/}
+                {/*    </tbody>*/}
+                {/*</table>*/}
             </section>
         )
     }

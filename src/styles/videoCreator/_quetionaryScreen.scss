@@ -1,0 +1,80 @@
+.questionary-section{
+  width: 100%;
+  height: auto;
+
+  .questionary-container{
+    background-color: #F1F1F1;
+    width: 669px;
+    height: 380px;
+
+    .text-background{
+      color: #A6A6A6;
+      position: absolute;
+      font-weight: bold;
+      font-size: 30px;
+      top: calc(380px - 45%);
+      left: calc(669px - 67%);
+    }
+  }
+
+  .questioner-bar--controls{
+    background-color: #D9D9D9;
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 15px;
+    width: 669px;
+    height: 45px;
+    margin-top: 18px;
+
+    .question-button{
+      background-color: #999;
+      color: #fff;
+      font-size: 14px;
+      border-radius: 6px;
+      border: none;
+      margin: auto 0;
+      width: 165px;
+      height: 30px;
+      transition: 0.5s;
+
+      div{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+
+
+        .button-orange{
+          background-image: url("../../icons/EllipseOrange.png");
+          background-size: auto;
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 16px;
+          height: 16px;
+
+        }.button-blue{
+          background-image: url("../../icons/EllipseBlue.png");
+          background-size: auto;
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 16px;
+          height: 16px;
+
+        }.button-green{
+          background-image: url("../../icons/EllipseGreen.png");
+          background-size: auto;
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+
+    .question-button:hover{
+      background-color: #6b6b6b;
+    }
+  }
+}

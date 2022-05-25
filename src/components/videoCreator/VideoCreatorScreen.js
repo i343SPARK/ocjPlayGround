@@ -1,11 +1,12 @@
-import TestFor from "./testFor/TestFor";
+
 import {Bar} from "../../Bar";
+import {CreatorSectionVisual} from "./CreatorSectionVisual";
 
 export const VideoCreatorScreen = () =>{
     return(
         <>
             <Bar/>
-            <TestFor/>
+            <CreatorSectionVisual/>
         </>
     )
 }
