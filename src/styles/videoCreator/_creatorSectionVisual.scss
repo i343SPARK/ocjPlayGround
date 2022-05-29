@@ -1,16 +1,21 @@
 .video-creator--container{
-  width: 95%;
+  width: 1440px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
 
-  .video-sect-one{
+  .video-section-article{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
 
-  }
+    .video-sect-one{
 
-  .video-sect-two{
-    position: relative;
-    right: calc(50% - 680px);
-    top: 38px;
+    }
+
+    .video-sect-two{
+      position: relative;
+      right: calc(50% - 680px);
+      top: 38px;
+    }
   }
 }
