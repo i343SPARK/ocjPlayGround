@@ -153,7 +153,7 @@ class TestFor extends Component {
                         className='react-player'
                         width='100%'
                         height='100%'
-                        url={"https://www.dropbox.com/s/1xcg0a9wxorpi2x/ego-prueba-el-platillo-que-remy-le-prepara-ratatouille.mp4?dl=0"}
+                        url={"https://www.dropbox.com/s/jfqearkekp53ygk/lo-que-hay-detras-de-una-pagina-web-explicado-con-minecraft.mp4?dl=0"}
                         pip={pip}
                         playing={playing}
                         controls={controls}
