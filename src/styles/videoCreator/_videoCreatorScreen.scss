@@ -1,3 +1,18 @@
 @import "creatorSectionVisual";
 @import "quetionaryScreen";
 @import "testFor";
+@import "VideoLearner/videoLearner";
+
+.div-button-screen{
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 4%;
+
+  .button-screen{
+    background-color: white;
+    border: none;
+    font-size: 30px;
+    text-decoration: underline;
+  }
+
+}

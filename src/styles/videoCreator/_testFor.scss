@@ -65,7 +65,7 @@
 
       .volume{
         margin-top: 6px;
-        background-color: red;
+        //background-color: red;
       }
     }
 
@@ -97,6 +97,22 @@
 
     .seek-bar{
       width: 100%;
+    }
+
+    .blue-set{
+      display: inline-block;
+      //margin-top: 10px;
+      background-image: url("../../icons/MarkBlueVideo.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 20px;
+      height: 30px;
+    }
+
+    .white-set{
+      display: none;
+
     }
   }
 }

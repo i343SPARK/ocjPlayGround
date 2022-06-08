@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import { findDOMNode } from 'react-dom'
 import { hot } from 'react-hot-loader'
-import screenfull from 'screenfull'
 import ReactPlayer from 'react-player'
 import Duration from './Duration'
+import {VideoLearner} from "../videoPreviewOptions/VideoLearner";
 
 class TestFor extends Component {
     state = {
-        url: null,
+        url: "https://www.dropbox.com/s/jfqearkekp53ygk/lo-que-hay-detras-de-una-pagina-web-explicado-con-minecraft.mp4?dl=0",
         pip: false,
         playing: false,
         controls: false,
@@ -18,7 +17,8 @@ class TestFor extends Component {
         loaded: 0,
         duration: 0,
         playbackRate: 1.0,
-        loop: false
+        loop: false,
+        markSet: false
     }
 
     load = url => {
@@ -125,10 +125,6 @@ class TestFor extends Component {
         this.setState({ duration })
     }
 
-    handleClickFullscreen = () => {
-        screenfull.request(findDOMNode(this.player))
-    }
-
     renderLoadButton = (url, label) => {
         return (
             <button onClick={() => this.load(url)}>
@@ -142,7 +138,7 @@ class TestFor extends Component {
     }
 
     render () {
-        const { url, playing, controls, light, volume, muted, loop, played, loaded ,duration, playbackRate, pip } = this.state
+        const { url, playing, controls, light, volume, muted, loop, played, loaded ,duration, playbackRate, pip, markSet } = this.state
 
         return (
             <section className='videoSectionCreator'>
@@ -153,7 +149,7 @@ class TestFor extends Component {
                         className='react-player'
                         width='100%'
                         height='100%'
-                        url={"https://www.dropbox.com/s/jfqearkekp53ygk/lo-que-hay-detras-de-una-pagina-web-explicado-con-minecraft.mp4?dl=0"}
+                        url={url}
                         pip={pip}
                         playing={playing}
                         controls={controls}
@@ -178,9 +174,7 @@ class TestFor extends Component {
                     />
                 </div>
                 <div className={"video-bar--controls"}>
-                    {/*<button onClick={this.handleStop}>Stop</button>*/}
                     <button onClick={this.handlePlayPause} className={playing ? "video-playing" : "video-paused"}></button>
-                    {/*<button onClick={this.handleClickFullscreen}>Fullscreen</button>*/}
                     <button className={"previous-button--video"}>Previous</button>
                     <button className={"next-button--video"}>Next</button>
                     <span className={"volume-container"}>
@@ -199,31 +193,8 @@ class TestFor extends Component {
                         onChange={this.handleSeekChange}
                         onMouseUp={this.handleSeekMouseUp}
                     />
+                    <span className={markSet ? "blue-set" : "white-set"}></span>
                 </div>
-                {/*<table>*/}
-                {/*    <tbody>*/}
-                {/*    <tr>*/}
-                {/*        <th>elapsed</th>*/}
-                {/*    </tr>*/}
-                {/*    <tr>*/}
-                {/*        <th>Controls</th>*/}
-                {/*        <td>*/}
-                {/*            {light &&*/}
-                {/*                <button onClick={() => this.player.showPreview()}>Show preview</button>}*/}
-                {/*            {ReactPlayer.canEnablePIP(url) &&*/}
-                {/*                <button onClick={this.handleTogglePIP}>{pip ? 'Disable PiP' : 'Enable PiP'}</button>}*/}
-                {/*        </td>*/}
-                {/*    </tr>*/}
-                {/*    <tr>*/}
-                {/*        <th>Speed</th>*/}
-                {/*        <td>*/}
-                {/*            <button onClick={this.handleSetPlaybackRate} value={1}>1x</button>*/}
-                {/*            <button onClick={this.handleSetPlaybackRate} value={1.5}>1.5x</button>*/}
-                {/*            <button onClick={this.handleSetPlaybackRate} value={2}>2x</button>*/}
-                {/*        </td>*/}
-                {/*    </tr>*/}
-                {/*    </tbody>*/}
-                {/*</table>*/}
             </section>
         )
     }
