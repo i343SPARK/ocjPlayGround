@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import { hot } from 'react-hot-loader'
 import ReactPlayer from 'react-player'
 import Duration from './Duration'
 import {VideoLearner} from "../videoPreviewOptions/VideoLearner";
+import DataBase from "../DataBase/db.json"
 
 class TestFor extends Component {
+
     state = {
         url: "https://www.dropbox.com/s/jfqearkekp53ygk/lo-que-hay-detras-de-una-pagina-web-explicado-con-minecraft.mp4?dl=0",
         pip: false,
@@ -18,8 +20,10 @@ class TestFor extends Component {
         duration: 0,
         playbackRate: 1.0,
         loop: false,
-        markSet: false
+        markSet: false,
+        logicalname: "push me"
     }
+
 
     load = url => {
         this.setState({
@@ -32,6 +36,15 @@ class TestFor extends Component {
 
     handlePlayPause = () => {
         this.setState({ playing: !this.state.playing })
+    }
+
+    setVideo = () =>{
+        fetch("http://localhost:8000/video-data").then((res) => res.json()).then((data) => {
+            console.log(data)
+
+            this.setState({url: data.url})
+            this.setState({logicalname: JSON.stringify({data})})
+        })
     }
 
     handleStop = () => {
@@ -138,7 +151,7 @@ class TestFor extends Component {
     }
 
     render () {
-        const { url, playing, controls, light, volume, muted, loop, played, loaded ,duration, playbackRate, pip, markSet } = this.state
+        const { url, playing, controls, light, volume, muted, loop, played, loaded ,duration, playbackRate, pip, markSet, logicalname } = this.state
 
         return (
             <section className='videoSectionCreator'>
@@ -195,6 +208,7 @@ class TestFor extends Component {
                     />
                     <span className={markSet ? "blue-set" : "white-set"}></span>
                 </div>
+                <button style={{marginTop: 100}} onClick={this.setVideo}>{logicalname}</button>
             </section>
         )
     }
