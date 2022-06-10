@@ -21,6 +21,7 @@ class TestFor extends Component {
         playbackRate: 1.0,
         loop: false,
         markSet: false,
+        datasave: [],
         logicalname: "push me"
     }
 
@@ -40,10 +41,14 @@ class TestFor extends Component {
 
     setVideo = () =>{
         fetch("http://localhost:8000/video-data").then((res) => res.json()).then((data) => {
-            console.log(data)
 
-            this.setState({url: data.url})
-            this.setState({logicalname: JSON.stringify({data})})
+            this.setState({datasave: data})
+
+            this.setState({url: this.state.datasave[0].url})
+            this.setState({logicalname: this.state.datasave[0].url})
+
+            console.log(this.state.datasave)
+            console.log(this.state.logicalname)
         })
     }
 
