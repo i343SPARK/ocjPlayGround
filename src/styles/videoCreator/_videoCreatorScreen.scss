@@ -15,4 +15,14 @@
     text-decoration: underline;
   }
 
+  .input-divider{
+    position: absolute;
+
+    .input-video-json{
+      position: relative;
+      top: -100px;
+
+    }
+  }
+
 }

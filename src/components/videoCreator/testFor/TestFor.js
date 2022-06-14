@@ -1,9 +1,8 @@
-import React, { Component, useEffect } from 'react'
+import React, { Component } from 'react'
 import { hot } from 'react-hot-loader'
 import ReactPlayer from 'react-player'
 import Duration from './Duration'
 import {VideoLearner} from "../videoPreviewOptions/VideoLearner";
-import DataBase from "../DataBase/db.json"
 
 class TestFor extends Component {
 
@@ -20,7 +19,7 @@ class TestFor extends Component {
         duration: 0,
         playbackRate: 1.0,
         loop: false,
-        markSet: false,
+        markSet: true,
         datasave: [],
         logicalname: "push me"
     }
