@@ -10,16 +10,16 @@ export const VideoCreatorScreen = () =>{
     // const [ updateUrlVideo, setUpdateUrlVideo ] = useState(false)
     const [ urlVideoInput, setUrlVideoInput] = useState("")
 
-    const apiJSON = "http://localhost:8000/video-data"
+    const apiVideoJSON = "http://localhost:8000/video-data"
 
     useEffect(() => {
         console.log("hals")
-        axios.get(apiJSON).then(res => console.log(res.data)).catch(err => console.log(err))
+        axios.get(apiVideoJSON).then(res => console.log(res.data)).catch(err => console.log(err))
     }, [])
 
 
     const setterUrlVideo = () => {
-        axios.post(apiJSON, {
+        axios.post(apiVideoJSON, {
             url: urlVideoInput
         }).then(res => console.log(res.data)).catch(err => console.log(err))
     }
@@ -38,7 +38,7 @@ export const VideoCreatorScreen = () =>{
     return(
         <>
             <Bar/>
-            <span style={displayStep? {display: "block", marginBottom: 200} : {display: "none"}}>
+            <span style={displayStep? {display: "block", marginBottom: 50} : {display: "none"}}>
                 <CreatorSectionVisual/>
             </span>
             <span style={displayStep? {display: "none"} : {display: "block"}}>

@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {hot} from "react-hot-loader";
+import axios from "axios";
 
 class QuestionaryScreen extends Component{
     state = {
@@ -10,6 +11,10 @@ class QuestionaryScreen extends Component{
         manyCheckBoxIncorrect_2: false,
         manyCheckBoxCorrect_3: true,
         manyCheckBoxIncorrect_3: false,
+        question: "",
+        option_1: "",
+        option_2: "",
+        option_3: "",
     }
 
     handleSelectMany = () => {
@@ -29,7 +34,49 @@ class QuestionaryScreen extends Component{
         this.setState({ manyCheckBoxIncorrect_3: !this.state.manyCheckBoxIncorrect_3})
     }
 
+    handleTextQuestion = (a) =>{
+        a.preventDefault()
+
+        this.setState({question: a.target.value})
+        console.log(this.state.question)
+    }
+
+    handleTextansware1 = (a) =>{
+        a.preventDefault()
+
+        this.setState({option_1: a.target.value})
+        console.log(this.state.option_1)
+
+    }
+
+    handleTextansware2 = (a) =>{
+        a.preventDefault()
+
+        this.setState({option_2: a.target.value})
+        console.log(this.state.option_2)
+
+    }
+
+    handleTextansware3 = (a) =>{
+        a.preventDefault()
+
+        this.setState({option_3: a.target.value})
+        console.log(this.state.option_3)
+
+    }
+
+    setDataJSON = () =>{
+        axios.post("http://localhost:8000/question-with-many", {
+            question: this.state.question,
+            option_1: this.state.option_1,
+            option_2: this.state.option_2,
+            option_3: this.state.option_3,
+        }).then(resp => console.log(resp.data)).catch(err => console.log(err))
+    }
+
+
     render() {
+
         const {
             manyDisplay,
             manyCheckBoxCorrect_1, manyCheckBoxIncorrect_1,
@@ -51,7 +98,7 @@ class QuestionaryScreen extends Component{
                         : "question-display-many--false"}
                     >
                         <section className={"question-container-modify"}>
-                            <input className={"question-input"} type={"text"} placeholder={"Write your question..."}/>
+                            <input className={"question-input"} type={"text"} placeholder={"Write your question..."} onChange={this.handleTextQuestion}/>
                         </section>
                         <section className={"answares-container"}>
                             <div className={"answares-container-components"}>
@@ -76,7 +123,7 @@ class QuestionaryScreen extends Component{
                                             </span>
                                         </button>
                                     </div>
-                                    <input className={"answare-input"} type={"text"} placeholder={"Write the option..."}/>
+                                    <input className={"answare-input"} type={"text"} placeholder={"Write the option..."} onChange={this.handleTextansware1}/>
                                 </div>
                                 <button className={"delete-option-button"}><span className={"delete-icon"}></span></button>
                             </div>
@@ -101,7 +148,7 @@ class QuestionaryScreen extends Component{
                                             </span>
                                         </button>
                                     </div>
-                                    <input className={"answare-input"} type={"text"} placeholder={"Write the option..."}/>
+                                    <input className={"answare-input"} type={"text"} placeholder={"Write the option..."} onChange={this.handleTextansware2}/>
                                 </div>
                                 <button className={"delete-option-button"}><span className={"delete-icon"}></span></button>
                             </div>
@@ -125,14 +172,14 @@ class QuestionaryScreen extends Component{
                                             </span>
                                         </button>
                                     </div>
-                                    <input className={"answare-input"} type={"text"} placeholder={"Write the option..."}/>
+                                    <input className={"answare-input"} type={"text"} placeholder={"Write the option..."} onChange={this.handleTextansware3}/>
                                 </div>
                                 <button className={"delete-option-button"}><span className={"delete-icon"}></span></button>
                             </div>
                         </section>
                         <section className={"button-modify-many"}>
                             <div className={"buttons-container"}>
-                                <button className={"button-modify"}><span className={"ok-icon"}></span></button>
+                                <button className={"button-modify"}><span className={"ok-icon"} onClick={this.setDataJSON}></span></button>
                                 <button className={"button-modify"}><span className={"add-icon"}></span></button>
                                 <button className={"button-modify"}><span className={"remove-icon"}></span></button>
                             </div>
