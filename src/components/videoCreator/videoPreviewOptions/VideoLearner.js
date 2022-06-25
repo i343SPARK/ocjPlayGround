@@ -1,9 +1,9 @@
-import react, {Component} from "react";
+import {Component} from "react";
 import ReactPlayer from 'react-player'
 import Duration from "../testFor/Duration";
-import TestFor from "../testFor/TestFor";
 import { hot } from 'react-hot-loader'
 import React from "react";
+import axios from "axios";
 
 
 class VideoLearner extends Component{
@@ -42,6 +42,10 @@ class VideoLearner extends Component{
             loaded: 0,
             pip: false
         })
+    }
+
+    testeomamalon(){
+        console.log("sdsd")
     }
 
     handlePlayPause = () => {

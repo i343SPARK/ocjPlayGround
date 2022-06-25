@@ -46,7 +46,6 @@ class QuestionaryScreen extends Component{
 
         this.setState({option_1: a.target.value})
         console.log(this.state.option_1)
-
     }
 
     handleTextansware2 = (a) =>{
