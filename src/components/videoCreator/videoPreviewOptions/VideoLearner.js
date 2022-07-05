@@ -3,7 +3,6 @@ import ReactPlayer from 'react-player'
 import Duration from "../testFor/Duration";
 import { hot } from 'react-hot-loader'
 import React from "react";
-import axios from "axios";
 
 
 class VideoLearner extends Component{
@@ -24,13 +23,9 @@ class VideoLearner extends Component{
             duration: 0,
             playbackRate: 1.0,
             loop: false,
-            option_1: false,
-            option_2: false,
-            option_3: false,
             velocity_1: true,
             velocity_2: false,
             velocity_3: false,
-            show_question: false,
             markSet: true,
         }
     }
@@ -42,10 +37,6 @@ class VideoLearner extends Component{
             loaded: 0,
             pip: false
         })
-    }
-
-    testeomamalon(){
-        console.log("sdsd")
     }
 
     handlePlayPause = () => {
@@ -99,6 +90,8 @@ class VideoLearner extends Component{
         if (!this.state.seeking) {
             this.setState(state)
         }
+
+        console.log("Tomando tiempo")
     }
 
     handleEnded = () => {
@@ -113,18 +106,6 @@ class VideoLearner extends Component{
         if(duration === 18){
             this.handlePlayPause()
         }
-    }
-
-    handleOption_1 = () =>{
-        this.setState({option_1: !this.state.option_1})
-    }
-
-    handleOption_2 = () =>{
-        this.setState({option_2: !this.state.option_2})
-    }
-
-    handleOption_3 = () =>{
-        this.setState({option_3: !this.state.option_3})
     }
 
     handleVelocity_1 = () =>{
@@ -145,10 +126,6 @@ class VideoLearner extends Component{
         this.handleOnPlaybackRateChange(1.0)
     }
 
-    handleShowingQuestion = () =>{
-        this.setState({show_question: !this.state.show_question})
-    }
-
     ref = player => {
         this.player = player
     }
@@ -156,7 +133,7 @@ class VideoLearner extends Component{
     render() {
         const {url, playing, controls, light, volume, muted, loop,
             played, loaded ,duration, playbackRate, pip, velocity_1,
-            velocity_2, velocity_3, option_1, option_2, option_3, show_question,
+            velocity_2, velocity_3,
             markSet} = this.state
         return(
             <section className={"preview--section"}>
@@ -190,29 +167,6 @@ class VideoLearner extends Component{
                             onProgress={this.handleProgress}
                             onDuration={this.handleDuration}
                         />
-                        <button onClick={this.handleShowingQuestion}></button>
-                    </article>
-                    <article className={show_question ? "preview-container--question--true" : "preview-container--question--false"}>
-                        <div className={"container-question--core-question"}>
-                            <h2 className={"core-question"}>Pregunta</h2>
-                        </div>
-                        <div className={"container-question--options"}>
-                            <button className={option_1? "option-answare--off" : "option-answare--on"}
-                                    onClick={this.handleOption_1}>
-                                option1
-                            </button>
-                            <button className={option_2? "option-answare--off" : "option-answare--on"}
-                                    onClick={this.handleOption_2}>
-                                option2
-                            </button>
-                            <button className={option_3? "option-answare--off" : "option-answare--on"}
-                                    onClick={this.handleOption_3}>
-                                option3
-                            </button>
-                        </div>
-                        <div className={"next-button--container"}>
-                            <button className={"next-button-question"} onClick={this.handleShowingQuestion}>next</button>
-                        </div>
                     </article>
                 </div>
                 <div className={"video-bar--controls"}>

@@ -4,10 +4,15 @@ import {CreatorSectionVisual} from "./CreatorSectionVisual";
 import VideoLearner from "./videoPreviewOptions/VideoLearner";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {MultipleAnsware} from "./videoPreviewOptions/TypeQuestions/MultipleAnsware";
+import TestFor from "./testFor/TestFor";
+import {useUpdate} from "./VideoHooks/useUpdate";
+
+
 
 export const VideoCreatorScreen = () =>{
     const [ displayStep, setDisplayStep] = useState(true)
-    // const [ updateUrlVideo, setUpdateUrlVideo ] = useState(false)
+    const questionHooks = useUpdate()
     const [ urlVideoInput, setUrlVideoInput] = useState("")
 
     const apiVideoJSON = "http://localhost:8000/video-data"
@@ -33,6 +38,7 @@ export const VideoCreatorScreen = () =>{
 
     const handleScreen = () =>{
         setDisplayStep( !displayStep )
+        questionHooks.handleState()
     }
 
     return(
@@ -42,7 +48,8 @@ export const VideoCreatorScreen = () =>{
                 <CreatorSectionVisual/>
             </span>
             <span style={displayStep? {display: "none"} : {display: "block"}}>
-                <VideoLearner/>
+                <TestFor/>
+                <MultipleAnsware/>
             </span>
             <div className={"div-button-screen"}>
                 <button onClick={handleScreen} className={"button-screen"}>{displayStep ? 'next' : 'back'}</button>

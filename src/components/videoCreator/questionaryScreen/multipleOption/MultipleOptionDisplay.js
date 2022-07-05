@@ -1,128 +1,118 @@
-import React, {Component} from 'react'
-import {hot} from "react-hot-loader";
+import {useState} from "react";
 import axios from "axios";
 
-class QuestionaryScreen extends Component{
-    state = {
-        manyDisplay: false,
-        manyCheckBoxCorrect_1: true,
-        manyCheckBoxIncorrect_1: false,
-        manyCheckBoxCorrect_2: true,
-        manyCheckBoxIncorrect_2: false,
-        manyCheckBoxCorrect_3: true,
-        manyCheckBoxIncorrect_3: false,
-        question: "",
-        option_1: "",
-        option_2: "",
-        option_3: "",
+export const MultipleOptionDisplay = () =>{
+
+    const [display, setDisplay] = useState(false)
+    const [checkBoxCorrect1, setCheckBoxCorrect1] = useState(true)
+    const [checkBoxCorrect2, setCheckBoxCorrect2] = useState(true)
+    const [checkBoxCorrect3, setCheckBoxCorrect3] = useState(true)
+    const [checkBoxIncorrect1, setCheckBoxIncorrect1] = useState(false)
+    const [checkBoxIncorrect2, setCheckBoxIncorrect2] = useState(false)
+    const [checkBoxIncorrect3, setCheckBoxIncorrect3] = useState(false)
+    const [question, setQuestion] = useState("")
+    const [option1, setOption1] = useState("")
+    const [option2, setOption2] = useState("")
+    const [option3, setOption3] = useState("")
+
+    const handleSelectMany = () => {
+        setDisplay( !display)
     }
 
-    handleSelectMany = () => {
-        this.setState({ manyDisplay: !this.state.manyDisplay})
+    const handleTypeAnsware_1 = () => {
+        setCheckBoxCorrect1( !checkBoxCorrect1)
+        setCheckBoxIncorrect1( !checkBoxIncorrect1)
+    }
+    const handleTypeAnsware_2 = () => {
+        setCheckBoxCorrect2( !checkBoxCorrect2)
+        setCheckBoxIncorrect2( !checkBoxIncorrect2)
+    }
+    const handleTypeAnsware_3 = () => {
+        setCheckBoxCorrect3( !checkBoxCorrect3)
+        setCheckBoxIncorrect3( !checkBoxIncorrect3)
     }
 
-    handleTypeAnsware_1 = () => {
-        this.setState({ manyCheckBoxCorrect_1: !this.state.manyCheckBoxCorrect_1})
-        this.setState({ manyCheckBoxIncorrect_1: !this.state.manyCheckBoxIncorrect_1})
-    }
-    handleTypeAnsware_2 = () => {
-        this.setState({ manyCheckBoxCorrect_2: !this.state.manyCheckBoxCorrect_2})
-        this.setState({ manyCheckBoxIncorrect_2: !this.state.manyCheckBoxIncorrect_2})
-    }
-    handleTypeAnsware_3 = () => {
-        this.setState({ manyCheckBoxCorrect_3: !this.state.manyCheckBoxCorrect_3})
-        this.setState({ manyCheckBoxIncorrect_3: !this.state.manyCheckBoxIncorrect_3})
-    }
-
-    handleTextQuestion = (a) =>{
+    const handleTextQuestion = (a) =>{
         a.preventDefault()
 
-        this.setState({question: a.target.value})
-        console.log(this.state.question)
+        setQuestion( a.target.value)
+        console.log(question)
     }
 
-    handleTextansware1 = (a) =>{
+    const handleTextansware1 = (a) =>{
         a.preventDefault()
 
-        this.setState({option_1: a.target.value})
-        console.log(this.state.option_1)
+        setOption1(a.target.value)
+        console.log(option1)
     }
 
-    handleTextansware2 = (a) =>{
+    const handleTextansware2 = (a) =>{
         a.preventDefault()
 
-        this.setState({option_2: a.target.value})
-        console.log(this.state.option_2)
+        setOption2(a.target.value)
+        console.log(option2)
 
     }
 
-    handleTextansware3 = (a) =>{
+    const handleTextansware3 = (a) =>{
         a.preventDefault()
 
-        this.setState({option_3: a.target.value})
-        console.log(this.state.option_3)
+        setOption3(a.target.value)
+        console.log(option3)
 
     }
 
-    setDataJSON = () =>{
+    const setDataJSON = () =>{
         axios.post("http://localhost:8000/question-with-many", {
-            question: this.state.question,
-            option_1: this.state.option_1,
-            option_2: this.state.option_2,
-            option_3: this.state.option_3,
+            question: question,
+            option_1: option1,
+            option_2: option2,
+            option_3: option3,
         }).then(resp => console.log(resp.data)).catch(err => console.log(err))
     }
 
-
-    render() {
-
-        const {
-            manyDisplay,
-            manyCheckBoxCorrect_1, manyCheckBoxIncorrect_1,
-            manyCheckBoxCorrect_2, manyCheckBoxIncorrect_2,
-            manyCheckBoxCorrect_3, manyCheckBoxIncorrect_3
-        } = this.state
-        return (
+    return(
+        <>
             <section className={"questionary-section"}>
                 <div className={"questionary-container"}>
                     <span className={"text-background"}>
                         Select an option
                     </span>
-                {/*  Aqui insertar lo relacionado a la pregunta  */}
+                    {/*  Aqui insertar lo relacionado a la pregunta  */}
                     <article className={false ?"question-display-open--true" : "question-display-open--false"}>
-                    {/*  Pregunta abierta  */}
+                        {/*  Pregunta abierta  */}
                     </article>
-                    <article className={manyDisplay
+                    <article className={display
                         ? "question-display-many--true"
                         : "question-display-many--false"}
                     >
                         <section className={"question-container-modify"}>
-                            <input className={"question-input"} type={"text"} placeholder={"Write your question..."} onChange={this.handleTextQuestion}/>
+                            <input className={"question-input"} type={"text"} placeholder={"Write your question..."} onChange={handleTextQuestion}/>
                         </section>
                         <section className={"answares-container"}>
                             <div className={"answares-container-components"}>
                                 <div className={"answares-container-modify"}>
                                     <div className={"button-select-div"}>
                                         <button className={"button-type-answare"}
-                                                onClick={this.handleTypeAnsware_1}>
+                                                onClick={handleTypeAnsware_1}>
                                             <span
-                                                className={manyCheckBoxCorrect_1
+                                                className={checkBoxCorrect1
                                                     ? "correct-answare-true"
                                                     : "correct-answare-false"}
                                             >
                                             </span>
                                         </button>
                                         <button className={"button-type-answare"}
-                                                onClick={this.handleTypeAnsware_1}>
+                                                onClick={handleTypeAnsware_1}>
                                             <span
-                                                className={manyCheckBoxIncorrect_1
+                                                className={checkBoxIncorrect1
                                                     ? "incorrect-answare-true"
                                                     : "incorrect-answare-false"}
                                             >
                                             </span>
                                         </button>
                                     </div>
-                                    <input className={"answare-input"} type={"text"} placeholder={"Write the option..."} onChange={this.handleTextansware1}/>
+                                    <input className={"answare-input"} type={"text"} placeholder={"Write the option..."} onChange={handleTextansware1}/>
                                 </div>
                                 <button className={"delete-option-button"}><span className={"delete-icon"}></span></button>
                             </div>
@@ -130,24 +120,24 @@ class QuestionaryScreen extends Component{
                                 <div className={"answares-container-modify"}>
                                     <div className={"button-select-div"}>
                                         <button className={"button-type-answare"}
-                                                onClick={this.handleTypeAnsware_2}>
+                                                onClick={handleTypeAnsware_2}>
                                             <span
-                                                className={manyCheckBoxCorrect_2
+                                                className={checkBoxCorrect2
                                                     ? "correct-answare-true"
                                                     : "correct-answare-false"}
                                             >
                                             </span>
                                         </button>
                                         <button className={"button-type-answare"}
-                                                onClick={this.handleTypeAnsware_2}>
+                                                onClick={handleTypeAnsware_2}>
                                             <span
-                                                className={manyCheckBoxIncorrect_2
+                                                className={checkBoxIncorrect2
                                                     ? "incorrect-answare-true"
                                                     : "incorrect-answare-false"}>
                                             </span>
                                         </button>
                                     </div>
-                                    <input className={"answare-input"} type={"text"} placeholder={"Write the option..."} onChange={this.handleTextansware2}/>
+                                    <input className={"answare-input"} type={"text"} placeholder={"Write the option..."} onChange={handleTextansware2}/>
                                 </div>
                                 <button className={"delete-option-button"}><span className={"delete-icon"}></span></button>
                             </div>
@@ -155,47 +145,44 @@ class QuestionaryScreen extends Component{
                                 <div className={"answares-container-modify"}>
                                     <div className={"button-select-div"}>
                                         <button className={"button-type-answare"}
-                                                onClick={this.handleTypeAnsware_3}>
+                                                onClick={handleTypeAnsware_3}>
                                             <span
-                                                className={manyCheckBoxCorrect_3
+                                                className={checkBoxCorrect3
                                                     ? "correct-answare-true"
                                                     : "correct-answare-false"}>
                                             </span>
                                         </button>
                                         <button className={"button-type-answare"}
-                                                onClick={this.handleTypeAnsware_3}>
+                                                onClick={handleTypeAnsware_3}>
                                             <span
-                                                className={manyCheckBoxIncorrect_3
+                                                className={checkBoxIncorrect3
                                                     ? "incorrect-answare-true"
                                                     : "incorrect-answare-false"}>
                                             </span>
                                         </button>
                                     </div>
-                                    <input className={"answare-input"} type={"text"} placeholder={"Write the option..."} onChange={this.handleTextansware3}/>
+                                    <input className={"answare-input"} type={"text"} placeholder={"Write the option..."} onChange={handleTextansware3}/>
                                 </div>
                                 <button className={"delete-option-button"}><span className={"delete-icon"}></span></button>
                             </div>
                         </section>
                         <section className={"button-modify-many"}>
                             <div className={"buttons-container"}>
-                                <button className={"button-modify"}><span className={"ok-icon"} onClick={this.setDataJSON}></span></button>
+                                <button className={"button-modify"}><span className={"ok-icon"} onClick={setDataJSON}></span></button>
                                 <button className={"button-modify"}><span className={"add-icon"}></span></button>
                                 <button className={"button-modify"}><span className={"remove-icon"}></span></button>
                             </div>
                         </section>
                     </article>
                     <article className={true ?"question-display-one--true" : "question-display-one--false"}>
-                    {/*  Pregunta opcion una respuesta */}
                     </article>
                 </div>
                 <div className={"questioner-bar--controls"}>
                     <button className={"question-button"}><div><span className={"button-orange"}></span>Open Question</div></button>
-                    <button className={manyDisplay ? "many-question-button-true" : "many-question-button-false"} onClick={this.handleSelectMany}><div><span className={"button-blue"}></span>Multiple Answare</div></button>
+                    <button className={display ? "many-question-button-true" : "many-question-button-false"} onClick={handleSelectMany}><div><span className={"button-blue"}></span>Multiple Answare</div></button>
                     <button className={"question-button"}><div><span className={"button-green"}></span>One Answare</div></button>
                 </div>
             </section>
-        );
-    }
+        </>
+    )
 }
-
-export default hot(module)(QuestionaryScreen)

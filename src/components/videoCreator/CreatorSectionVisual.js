@@ -1,8 +1,10 @@
 import TestFor from "./testFor/TestFor";
-import QuestionaryScreen from "./questionaryScreen/QuestionaryScreen";
+import {MultipleOptionDisplay} from "./questionaryScreen/multipleOption/MultipleOptionDisplay";
 
 
 export const CreatorSectionVisual = () =>{
+
+
     return(
         <section className={"video-creator--container"}>
             <article className={"video-section-article"}>
@@ -10,7 +12,7 @@ export const CreatorSectionVisual = () =>{
                     <TestFor/>
                 </div>
                 <div className={"video-sect-two"}>
-                    <QuestionaryScreen/>
+                    <MultipleOptionDisplay/>
                 </div>
             </article>
         </section>

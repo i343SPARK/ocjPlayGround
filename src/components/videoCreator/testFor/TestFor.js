@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { hot } from 'react-hot-loader'
 import ReactPlayer from 'react-player'
 import Duration from './Duration'
-import {VideoLearner} from "../videoPreviewOptions/VideoLearner";
 
 class TestFor extends Component {
 
