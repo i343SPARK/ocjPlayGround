@@ -197,7 +197,7 @@ class TestFor extends Component {
                         <input className={"volume"} type='range' min={0} max={1} step='any' value={volume} onChange={this.handleVolumeChange} />
                     </span>
                     <span className={"time-container"}>
-                        <Duration className={"duration"} seconds={duration * played} />
+                        <Duration className={"duration"} seconds={duration * played}/>
                     </span>
                 </div>
                 <div className={"seek-container"}>

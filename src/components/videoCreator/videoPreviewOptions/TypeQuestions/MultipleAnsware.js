@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 
 export const MultipleAnsware = () =>{
 
-    const [showQuestion, setShowQuestion] = useState(false)
+    const [showQuestion, setShowQuestion] = useState(true)
     const [option1, setOption1] = useState(false)
     const [option2, setOption2] = useState(false)
     const [option3, setOption3] = useState(false)
@@ -12,12 +12,13 @@ export const MultipleAnsware = () =>{
         setShowQuestion( !showQuestion )
     }
 
-    const getDatabase = () =>{
+    useEffect(() => {
         fetch("http://localhost:8000/question-with-many").then((res) => res.json()).then((data) => {
             setDataQuestion(data)
-            console.log(dataQuestion)
         })
-    }
+        console.log("fetch", dataQuestion)
+    }, [])
+
 
     const switchOption1 = () =>{
         setOption1( !option1 )
@@ -55,6 +56,7 @@ export const MultipleAnsware = () =>{
                     <div className={"next-button--container"}>
                         <button className={"next-button-question"} onClick={handleQuestionScreen}>next</button>
                     </div>
+                    <button onClick={() => {console.log(dataQuestion)}}>borrame</button>
                 </article>
             </section>
         </>

@@ -3,6 +3,7 @@
 @import "testFor";
 @import "VideoLearner/videoLearner";
 @import "VideoLearner/multipleAnsware";
+@import "VideoLearner/previewVideoScreen";
 
 .div-button-screen{
   margin: 0 auto;
@@ -11,6 +12,7 @@
   .button-screen{
     background-color: white;
     border: none;
+    color: black;
     font-size: 30px;
     text-decoration: underline;
   }

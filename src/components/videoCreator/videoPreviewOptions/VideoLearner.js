@@ -111,13 +111,13 @@ class VideoLearner extends Component{
     handleVelocity_1 = () =>{
         this.setState({velocity_1: !this.state.velocity_1})
         this.setState({velocity_2: !this.state.velocity_2})
-        this.handleOnPlaybackRateChange(1.5)
+        this.handleOnPlaybackRateChange(2.0)
     }
 
     handleVelocity_2 = () =>{
         this.setState({velocity_2: !this.state.velocity_2})
         this.setState({velocity_3: !this.state.velocity_3})
-        this.handleOnPlaybackRateChange(2.0)
+        this.handleOnPlaybackRateChange(3.0)
     }
 
     handleVelocity_3 = () =>{

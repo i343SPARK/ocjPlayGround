@@ -5,6 +5,7 @@ import { SharingProjectsScreen } from '../components/sharingProjects/SharingProj
 import { VideoScreen } from '../components/video/VideoScreen';
 import {CountDownerScreen} from "../components/countDowner/CountDownerScreen";
 import {VideoCreatorScreen} from "../components/videoCreator/VideoCreatorScreen";
+import {PreviewVideoScreen} from "../components/videoCreator/PreviewVideoScreen";
 
 export const AppRouter = () => {
     return (
@@ -19,6 +20,7 @@ export const AppRouter = () => {
                     <Route path='/video' element={<VideoScreen/>}/>
                     <Route path='/count' element={<CountDownerScreen/>}/>
                     <Route path="/creatorVideo" element={<VideoCreatorScreen/>} />
+                    <Route path="/previewVideo" element={<PreviewVideoScreen/>} />
                 </Routes>
             </BrowserRouter>
         </>

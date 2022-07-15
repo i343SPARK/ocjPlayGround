@@ -1,5 +1,6 @@
 import {useState} from "react";
 import axios from "axios";
+import {useUpdate} from "../../VideoHooks/useUpdate";
 
 export const MultipleOptionDisplay = () =>{
 
@@ -14,6 +15,8 @@ export const MultipleOptionDisplay = () =>{
     const [option1, setOption1] = useState("")
     const [option2, setOption2] = useState("")
     const [option3, setOption3] = useState("")
+
+    const questionHooks = useUpdate()
 
     const handleSelectMany = () => {
         setDisplay( !display)
@@ -69,6 +72,9 @@ export const MultipleOptionDisplay = () =>{
             option_2: option2,
             option_3: option3,
         }).then(resp => console.log(resp.data)).catch(err => console.log(err))
+
+        questionHooks.handleState()
+
     }
 
     return(

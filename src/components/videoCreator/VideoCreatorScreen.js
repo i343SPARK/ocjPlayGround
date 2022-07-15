@@ -1,7 +1,8 @@
 
 import {Bar} from "../../Bar";
+import {Link} from "react-router-dom"
 import {CreatorSectionVisual} from "./CreatorSectionVisual";
-import VideoLearner from "./videoPreviewOptions/VideoLearner";
+// import VideoLearner from "./videoPreviewOptions/VideoLearner";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {MultipleAnsware} from "./videoPreviewOptions/TypeQuestions/MultipleAnsware";
@@ -52,10 +53,11 @@ export const VideoCreatorScreen = () =>{
                 <MultipleAnsware/>
             </span>
             <div className={"div-button-screen"}>
-                <button onClick={handleScreen} className={"button-screen"}>{displayStep ? 'next' : 'back'}</button>
+                {/*<button onClick={handleScreen} className={"button-screen"}>{displayStep ? 'next' : 'back'}</button>*/}
+                <Link to={"/previewVideo"} onClick={() => {console.log("pedro")}} className={"button-screen"}>Next</Link>
             </div>
             <div className={"input-divider"}>
-                <input type={"url"} placeholder={"write url video needed"} className={"input-video-json"} onChange={updateUrlInput}/>
+                <input type={"file"} placeholder={"write url video needed"} className={"input-video-json"} onChange={updateUrlInput}/>
                 <button onClick={setterUrlVideo}>submit</button>
             </div>
         </>
